@@ -13,7 +13,7 @@ public class Bebedor
     private float nivel;
     // Atributo que guardara el limite maximo de alcohol en sangre del bebedor
     private float limite;
-    
+
     /**
      * Constructor para crear un bebedor
      */
@@ -51,21 +51,17 @@ public class Bebedor
      */
     public String preguntaAlBorrachuzco(String hazTuPregunta){
         String respuesta="";
-        if(hazTuPregunta.contains(nombre)){
+        if((hazTuPregunta.contains(nombre)) || (nivel > limite)){
             respuesta = hazTuPregunta.toUpperCase();
         }
         else{
-            if(nivel<limite){
-                if(hazTuPregunta.length() % 2 == 0){
-                    respuesta = "Si";
-                }
-                else{
-                    respuesta = "No";
-                }
+            if(hazTuPregunta.length() % 2 == 0){
+                respuesta = "Si";
             }
-            else {
-                respuesta = hazTuPregunta.toUpperCase();
+            else{
+                respuesta = "No";
             }
+
         }
         return respuesta;
     }
